@@ -1,16 +1,13 @@
 // ── Horizon Turnout Gear — Composite Lookup PWA ──────────────────────────────
-// Service Worker v1.0 — Cache-first, fully offline capable
+// Service Worker v2.0 — Cache-first, fully offline capable
 // Update CACHE_NAME whenever you redeploy to force clients to refresh.
-
-const CACHE_NAME = 'htg-composites-v1';
-
+const CACHE_NAME = 'htg-composites-v2';
 const FILES_TO_CACHE = [
   './index.html',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
 ];
-
 // ── Install: pre-cache all app files ─────────────────────────────────────────
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -20,7 +17,6 @@ self.addEventListener('install', event => {
     }).then(() => self.skipWaiting())
   );
 });
-
 // ── Activate: clean up old caches ─────────────────────────────────────────────
 self.addEventListener('activate', event => {
   event.waitUntil(
@@ -36,13 +32,11 @@ self.addEventListener('activate', event => {
     ).then(() => self.clients.claim())
   );
 });
-
 // ── Fetch: cache-first strategy ───────────────────────────────────────────────
 // Serve from cache instantly; fall back to network if not cached.
 self.addEventListener('fetch', event => {
   // Only handle GET requests for same-origin resources
   if (event.request.method !== 'GET') return;
-
   event.respondWith(
     caches.match(event.request).then(cached => {
       if (cached) {
