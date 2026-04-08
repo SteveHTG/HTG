@@ -32,90 +32,62 @@
   html, body { height:100%; background:var(--navy); color:var(--text);
     font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
     overflow-x:hidden; }
-
-  /* ── Layout ── */
   .app { min-height:100dvh; display:flex; flex-direction:column;
     background:linear-gradient(160deg,#0d1b3e 0%,#1a2f6b 55%,#091526 100%);
     padding-bottom:calc(16px + var(--safe-bottom)); }
-  .content { flex:1; width:100%; max-width:560px; margin:0 auto;
-    padding:0 16px; }
-
-  /* ── Header ── */
+  .content { flex:1; width:100%; max-width:560px; margin:0 auto; padding:0 16px; }
   header { background:rgba(13,27,62,0.85); backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--border);
     padding:14px 20px 12px; position:sticky; top:0; z-index:100;
     padding-top:calc(14px + env(safe-area-inset-top,0px)); }
-  .header-inner { max-width:560px; margin:0 auto;
-    display:flex; align-items:center; gap:12px; }
-  .logo { width:38px; height:38px; flex-shrink:0;
-    display:flex; align-items:center; justify-content:center; }
+  .header-inner { max-width:560px; margin:0 auto; display:flex; align-items:center; gap:12px; }
+  .logo { width:38px; height:38px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
   .header-text h1 { font-size:17px; font-weight:700; letter-spacing:-0.02em; }
   .header-text p  { font-size:11px; color:var(--muted); margin-top:1px; }
-
-  /* ── Cards / glass panels ── */
-  .card { background:var(--glass); border:1px solid var(--border);
-    border-radius:16px; padding:18px; }
-
-  /* ── Tab toggle ── */
+  .card { background:var(--glass); border:1px solid var(--border); border-radius:16px; padding:18px; }
   .tabs { display:flex; background:rgba(0,0,0,0.25); border-radius:12px;
     padding:4px; gap:4px; margin:16px 0; }
-  .tab { flex:1; padding:10px 6px; border:none; border-radius:9px;
-    font-size:13px; font-weight:600; cursor:pointer; transition:all .2s;
+  .tab { flex:1; padding:10px 4px; border:none; border-radius:9px;
+    font-size:12px; font-weight:600; cursor:pointer; transition:all .2s;
     background:transparent; color:var(--muted); }
   .tab.active { background:linear-gradient(135deg,var(--blue),var(--blue2));
     color:#fff; box-shadow:0 2px 8px rgba(59,130,246,.35); }
-
-  /* ── Form fields ── */
   .field { margin-bottom:14px; }
   .field:last-child { margin-bottom:0; }
   label { display:block; font-size:11px; font-weight:700;
-    letter-spacing:.07em; text-transform:uppercase;
-    color:var(--muted); margin-bottom:6px; }
+    letter-spacing:.07em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
   select, input[type=text] {
     width:100%; padding:13px 40px 13px 14px;
     border-radius:10px; border:1.5px solid var(--border);
     background:rgba(255,255,255,0.07); color:var(--text);
     font-size:15px; outline:none; appearance:none;
-    -webkit-appearance:none; transition:border-color .2s;
-    min-height:48px; }
+    -webkit-appearance:none; transition:border-color .2s; min-height:48px; }
   select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath fill='%2360a5fa' d='M1 1l6 6 6-6'/%3E%3C/svg%3E");
     background-repeat:no-repeat; background-position:right 14px center; }
   select:focus, input:focus { border-color:var(--blue); }
   select:disabled { opacity:.35; cursor:not-allowed; }
   select option { background:#1a2f6b; color:#fff; }
-
-  /* ── Code lookup row ── */
   .code-row { display:flex; gap:10px; }
   .code-row input { flex:1; padding-right:14px; }
   .btn-search { padding:0 22px; border-radius:10px; border:none; min-height:48px;
     background:linear-gradient(135deg,var(--blue),var(--blue2));
     color:#fff; font-weight:700; font-size:14px; cursor:pointer;
-    white-space:nowrap; flex-shrink:0;
-    box-shadow:0 2px 8px rgba(59,130,246,.3); }
+    white-space:nowrap; flex-shrink:0; box-shadow:0 2px 8px rgba(59,130,246,.3); }
   .btn-search:active { opacity:.85; transform:scale(.98); }
-
   .error-msg { color:var(--red); font-size:12px; margin-top:6px; }
-
-  /* ── Clear button ── */
   .btn-clear { display:block; width:100%; margin-top:12px; padding:11px;
     border-radius:10px; border:1.5px solid var(--border);
     background:transparent; color:var(--muted); font-size:13px;
     font-weight:600; cursor:pointer; transition:all .2s; min-height:44px; }
   .btn-clear:active { background:var(--glass); }
-
-  /* ── Results ── */
   .results { margin-top:14px; animation:fadeUp .25s ease; }
   @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
-
-  .result-header { padding-bottom:14px; margin-bottom:14px;
-    border-bottom:1px solid var(--border); }
+  .result-header { padding-bottom:14px; margin-bottom:14px; border-bottom:1px solid var(--border); }
   .result-header .code-badge { display:inline-block; padding:4px 10px;
     background:rgba(59,130,246,.18); border:1px solid rgba(59,130,246,.35);
     border-radius:6px; color:var(--blue3); font-size:12px;
     font-weight:700; letter-spacing:.06em; margin-bottom:6px; }
-  .result-header .composite-name { font-size:13px; color:var(--muted);
-    line-height:1.5; }
-
+  .result-header .composite-name { font-size:13px; color:var(--muted); line-height:1.5; }
   .metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
   .metric { border-radius:12px; padding:16px 10px; text-align:center; }
   .metric.tpp { background:rgba(59,130,246,.12); border:1px solid rgba(59,130,246,.28); }
@@ -129,95 +101,56 @@
   .metric-unit  { font-size:10px; color:var(--dim); margin-bottom:5px; }
   .metric-label { font-size:13px; font-weight:700; color:var(--text); }
   .metric-desc  { font-size:10px; color:var(--dim); margin-top:3px; line-height:1.4; }
-
-  /* ── Performance Summary ── */
   .summary-card {
-    margin-top:12px;
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.14);
-    border-radius:14px;
-    padding:16px;
-    animation:fadeUp .3s ease;
+    margin-top:12px; background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.14); border-radius:14px;
+    padding:16px; animation:fadeUp .3s ease;
   }
-  .summary-title {
-    font-size:10px;
-    font-weight:700;
-    letter-spacing:.09em;
-    text-transform:uppercase;
-    color:var(--dim);
-    margin-bottom:12px;
-  }
+  .summary-title { font-size:10px; font-weight:700; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--dim); margin-bottom:12px; }
   .summary-rows { display:flex; flex-direction:column; gap:10px; }
-  .summary-row {
-    display:flex;
-    gap:10px;
-    align-items:flex-start;
-  }
-  .summary-badge {
-    flex-shrink:0;
-    min-width:52px;
-    padding:3px 8px;
-    border-radius:6px;
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:.05em;
-    text-align:center;
-    text-transform:uppercase;
-  }
+  .summary-row { display:flex; gap:10px; align-items:flex-start; }
+  .summary-badge { flex-shrink:0; min-width:72px; padding:3px 8px; border-radius:6px;
+    font-size:10px; font-weight:800; letter-spacing:.05em; text-align:center; text-transform:uppercase; }
   .badge-excellent { background:rgba(16,185,129,.22); color:#34d399; border:1px solid rgba(16,185,129,.35); }
+  .badge-great     { background:rgba(16,185,129,.14); color:#6ee7b7; border:1px solid rgba(16,185,129,.28); }
   .badge-good      { background:rgba(59,130,246,.22); color:#93c5fd; border:1px solid rgba(59,130,246,.35); }
   .badge-moderate  { background:rgba(245,158,11,.22); color:#fcd34d; border:1px solid rgba(245,158,11,.35); }
   .badge-low       { background:rgba(239,68,68,.18);  color:#fca5a5; border:1px solid rgba(239,68,68,.30); }
-  .summary-text {
-    font-size:12px;
-    color:rgba(255,255,255,0.75);
-    line-height:1.55;
-  }
-  .summary-divider {
-    height:1px;
-    background:rgba(255,255,255,0.08);
-    margin:4px 0;
-  }
-  .summary-overall {
-    margin-top:10px;
-    padding-top:10px;
+  .badge-minimum   { background:rgba(239,68,68,.10);  color:#fca5a5; border:1px solid rgba(239,68,68,.22); }
+  .summary-text { font-size:12px; color:rgba(255,255,255,0.75); line-height:1.55; }
+  .summary-overall { margin-top:10px; padding-top:10px;
     border-top:1px solid rgba(255,255,255,0.08);
-    font-size:12px;
-    color:rgba(255,255,255,0.65);
-    line-height:1.6;
-    font-style:italic;
-  }
-
-  /* ── Tailboard Truth warnings ── */
-  .summary-warnings {
-    margin-top:10px;
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-  }
-  .summary-warn-item {
-    background:rgba(239,68,68,0.12);
-    border:1px solid rgba(239,68,68,0.30);
-    border-left:3px solid #ef4444;
-    border-radius:8px;
-    padding:10px 12px;
-    font-size:12px;
-    color:rgba(255,255,255,0.82);
-    line-height:1.55;
-  }
+    font-size:12px; color:rgba(255,255,255,0.65); line-height:1.6; font-style:italic; }
+  .summary-warnings { margin-top:10px; display:flex; flex-direction:column; gap:8px; }
+  .summary-warn-item { background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.30);
+    border-left:3px solid #ef4444; border-radius:8px; padding:10px 12px;
+    font-size:12px; color:rgba(255,255,255,0.82); line-height:1.55; }
   .summary-warn-item strong { color:#fca5a5; }
-
-  /* ── Guide ── */
+  .range-results { margin-top:14px; animation:fadeUp .25s ease; }
+  .range-count { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--dim); margin-bottom:10px; }
+  .range-list { display:flex; flex-direction:column; gap:8px; }
+  .range-item { background:rgba(255,255,255,0.05); border:1px solid var(--border);
+    border-radius:12px; padding:12px 14px; display:flex; align-items:flex-start; gap:12px; }
+  .range-code { flex-shrink:0; padding:4px 10px;
+    background:rgba(59,130,246,.18); border:1px solid rgba(59,130,246,.35);
+    border-radius:6px; color:var(--blue3); font-size:13px; font-weight:800;
+    letter-spacing:.06em; min-width:54px; text-align:center; }
+  .range-info { flex:1; min-width:0; }
+  .range-name { font-size:12px; color:var(--muted); line-height:1.45; }
+  .range-metrics { display:flex; gap:6px; margin-top:5px; flex-wrap:wrap; }
+  .range-pill { font-size:10px; font-weight:700; padding:2px 7px; border-radius:4px; }
+  .pill-tpp { background:rgba(59,130,246,.18); color:var(--blue3); }
+  .pill-ret { background:rgba(16,185,129,.18); color:#6ee7b7; }
+  .pill-thl { background:rgba(245,158,11,.18); color:#fcd34d; }
   .guide { margin-top:16px; }
   .guide-title { font-size:10px; font-weight:700; letter-spacing:.08em;
     text-transform:uppercase; color:var(--dim); margin-bottom:10px; }
   .guide-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
   .guide-item { background:rgba(255,255,255,.03); border-radius:8px; padding:10px; }
-  .guide-item .gl { font-size:11px; font-weight:700; color:var(--muted);
-    margin-bottom:3px; }
+  .guide-item .gl { font-size:11px; font-weight:700; color:var(--muted); margin-bottom:3px; }
   .guide-item p { font-size:10px; color:var(--dim); line-height:1.4; }
-
-  /* ── Install banner ── */
   #install-banner { display:none; position:fixed; bottom:0; left:0; right:0; z-index:200;
     background:linear-gradient(135deg,var(--blue2),var(--navy2));
     border-top:1px solid var(--border); padding:14px 20px;
@@ -234,29 +167,24 @@
 </style>
 </head>
 <body>
-
 <header>
   <div class="header-inner">
     <div class="logo">
-        <img src="data:image/png;base64,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" width="38" height="38" alt="HTG Logo" style="display:block;"/>
-      </div>
+      <img src="data:image/png;base64,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" width="38" height="38" alt="HTG Logo" style="display:block;object-fit:contain;"/>
+    </div>
     <div class="header-text">
       <h1>Horizon Turnout Gear</h1>
       <p>2026 Composite Performance — NFPA 1970 · 315 composites</p>
     </div>
   </div>
 </header>
-
 <div class="app">
  <div class="content">
-
   <div class="tabs" role="tablist">
-    <button class="tab active" id="tab-dropdown" role="tab"
-      aria-selected="true" onclick="switchMode('dropdown')">🔽 Component Lookup</button>
-    <button class="tab" id="tab-code" role="tab"
-      aria-selected="false" onclick="switchMode('code')">🔢 Composite Code</button>
+    <button class="tab active" id="tab-dropdown" role="tab" aria-selected="true" onclick="switchMode('dropdown')">🔽 Component</button>
+    <button class="tab" id="tab-code" role="tab" aria-selected="false" onclick="switchMode('code')">🔢 Code</button>
+    <button class="tab" id="tab-range" role="tab" aria-selected="false" onclick="switchMode('range')">🎯 Desired Range</button>
   </div>
-
   <!-- Dropdown panel -->
   <div id="panel-dropdown">
     <div class="card">
@@ -280,10 +208,8 @@
       </div>
     </div>
     <div id="result-dropdown"></div>
-    <button class="btn-clear" id="clear-dropdown" style="display:none"
-      onclick="clearDropdown()">✕ Clear Selection</button>
+    <button class="btn-clear" id="clear-dropdown" style="display:none" onclick="clearDropdown()">&#x2715; Clear Selection</button>
   </div>
-
   <!-- Code panel -->
   <div id="panel-code" style="display:none">
     <div class="card">
@@ -299,27 +225,61 @@
       </div>
     </div>
     <div id="result-code"></div>
-    <button class="btn-clear" id="clear-code" style="display:none"
-      onclick="clearCode()">✕ Clear</button>
+    <button class="btn-clear" id="clear-code" style="display:none" onclick="clearCode()">&#x2715; Clear</button>
   </div>
-
+  <!-- Desired Range panel -->
+  <div id="panel-range" style="display:none">
+    <div class="card">
+      <div class="field">
+        <label for="sel-range-tpp">TPP — Thermal Protection</label>
+        <select id="sel-range-tpp" onchange="onRangeChange()">
+          <option value="">— Any TPP —</option>
+          <option value="minimum">Minimum (35–36.9)</option>
+          <option value="moderate">Moderate (37–38.5)</option>
+          <option value="good">Good (38.6–39.9)</option>
+          <option value="excellent">Excellent (40–42.5)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="sel-range-thl">THL — Total Heat Loss</label>
+        <select id="sel-range-thl" onchange="onRangeChange()">
+          <option value="">— Any THL —</option>
+          <option value="minimum">Minimum / Too Low (205–215)</option>
+          <option value="low">Low (215–240)</option>
+          <option value="moderate">Moderate (240–264)</option>
+          <option value="good">Good (265–285)</option>
+          <option value="great">Great (286–300)</option>
+          <option value="excellent">Excellent (300+)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="sel-range-ret">RET — Evaporative Heat Resistance</label>
+        <select id="sel-range-ret" onchange="onRangeChange()">
+          <option value="">— Any RET —</option>
+          <option value="excellent">Excellent (20 or less)</option>
+          <option value="good">Good (20.1–24.9)</option>
+          <option value="moderate">Moderate (25–30)</option>
+          <option value="low">Low / Minimum (over 30)</option>
+        </select>
+      </div>
+    </div>
+    <div id="result-range"></div>
+    <button class="btn-clear" id="clear-range" style="display:none" onclick="clearRange()">&#x2715; Clear Filters</button>
+  </div>
   <!-- Metric guide -->
   <div class="guide" style="margin-top:20px">
     <div class="guide-title">Performance Metric Guide</div>
     <div class="guide-grid">
       <div class="guide-item"><div class="gl">TPP</div>
-        <p>Higher = better. ≥35 cal/cm² meets NFPA 1970 minimum.</p></div>
+        <p>Higher = better. 35+ meets NFPA 1970. Over 42.5 = delayed heat sensation risk.</p></div>
       <div class="guide-item"><div class="gl">RET</div>
-        <p>Lower = better. Evaporative heat escape — critical when wet.</p></div>
+        <p>Lower = better. Evaporative heat escape — critical when gear is wet.</p></div>
       <div class="guide-item"><div class="gl">THL</div>
-        <p>Higher = better. Total heat loss &amp; wearer comfort.</p></div>
+        <p>Higher = better. Total heat loss and wearer comfort. Every 15 W/m2 is noticeable.</p></div>
     </div>
   </div>
-
  </div>
 </div>
-
-<!-- Install banner -->
 <div id="install-banner" class="hidden" role="complementary" aria-label="Install app">
   <div class="ib-text">
     <strong>Install on Home Screen</strong>
@@ -328,258 +288,173 @@
   <button class="btn-dismiss" onclick="dismissInstall()">Not now</button>
   <button class="btn-install" onclick="triggerInstall()">Install</button>
 </div>
-
 <script>
-// ── Data ────────────────────────────────────────────────────────────────────
+
 const DATA = [{"shell": "PBI Max 6.0 LP", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 35.7, "ret": 21, "thl": 235, "code": "12B2"}, {"shell": "PBI Max 6.0 LP", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.6, "ret": 29, "thl": 255, "code": "12B3"}, {"shell": "PBI Max 6.0 LP", "thermal": "Glide Ice with PBI G2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.8, "ret": 31, "thl": 236, "code": "12H3"}, {"shell": "PBI Max 6.0 LP", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.3, "ret": 26, "thl": 243, "code": "12T3"}, {"shell": "PBI Max 6.0 LP", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 41.3, "ret": 32, "thl": 229, "code": "12V3"}, {"shell": "PBI Max 6.0 LP", "thermal": "Glide Ice 2-Layer", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 38.5, "ret": 32, "thl": 247, "code": "12BA"}, {"shell": "PBI Max 6.0 LP", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 36.7, "ret": 23, "thl": 261, "code": "12BG"}, {"shell": "PBI Max 6.0 LP", "thermal": "Glide Ice Pure", "moisture": "Stedair 4000", "tpp": 44.5, "ret": 26, "thl": 215, "code": "12VG"}, {"shell": "PBI Max 6.0 LP", "thermal": "Glide Ice with PBI G2", "moisture": "Stedair Gold", "tpp": 35.2, "ret": 24, "thl": 236, "code": "12HN"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.5, "ret": 19, "thl": 274, "code": "16B2"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 36.8, "ret": 17, "thl": 285, "code": "16I2"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.9, "ret": 18, "thl": 274, "code": "16K2"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.1, "ret": 19, "thl": 262, "code": "16T2"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.8, "ret": 27, "thl": 277, "code": "16B3"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36, "ret": 28, "thl": 279, "code": "16K3"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.5, "ret": 28, "thl": 260, "code": "16T3"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 35.4, "ret": 35, "thl": 263, "code": "16K4"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 36.9, "ret": 18, "thl": 283, "code": "16I7"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 37.9, "ret": 20, "thl": 270, "code": "16K7"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 36.1, "ret": 19, "thl": 257, "code": "16T7"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "Glide Ice 2-Layer", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 37.8, "ret": 31, "thl": 263, "code": "16BA"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 36.6, "ret": 28, "thl": 287, "code": "16IA"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108004 Equinox 2L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 36.7, "ret": 30, "thl": 291, "code": "16JA"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108003 Equinox 3L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 37.8, "ret": 32, "thl": 272, "code": "16KA"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108003 Equinox 3L", "moisture": "Stedair 3000", "tpp": 36.5, "ret": 20, "thl": 275, "code": "16KD"}, {"shell": "Armor AP", "thermal": "Q8", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 35.4, "ret": 24, "thl": 222, "code": "1722"}, {"shell": "Armor AP", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.1, "ret": 21, "thl": 226, "code": "17A2"}, {"shell": "Armor AP", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 38.2, "ret": 23, "thl": 235, "code": "17B2"}, {"shell": "Armor AP", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 35, "ret": 21, "thl": 236, "code": "17K2"}, {"shell": "Armor AP", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 41.4, "ret": 25, "thl": 207, "code": "17V2"}, {"shell": "Armor AP", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.1, "ret": 21, "thl": 226, "code": "17W2"}, {"shell": "Armor AP", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.1, "ret": 28, "thl": 236, "code": "17A3"}, {"shell": "Armor AP", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 41.4, "ret": 33, "thl": 238, "code": "17V3"}, {"shell": "Armor AP", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.1, "ret": 28, "thl": 236, "code": "17W3"}, {"shell": "Armor AP", "thermal": "Quantum 3D SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36, "ret": 28, "thl": 231, "code": "17Z3"}, {"shell": "Armor AP", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 38.2, "ret": 41, "thl": 225, "code": "17B4"}, {"shell": "Armor AP", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 36, "ret": 38, "thl": 234, "code": "17K4"}, {"shell": "Armor AP", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 38.7, "ret": 22, "thl": 245, "code": "17B7"}, {"shell": "Armor AP", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 36.4, "ret": 20, "thl": 259, "code": "17I7"}, {"shell": "Armor AP", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 37.6, "ret": 22, "thl": 244, "code": "17K7"}, {"shell": "Armor AP", "thermal": "Glide Ice 2-Layer", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 37.6, "ret": 33, "thl": 238, "code": "17BA"}, {"shell": "Armor AP", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 37.9, "ret": 32, "thl": 251, "code": "17IA"}, {"shell": "Armor AP", "thermal": "MPG S000108003 Equinox 3L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 38.9, "ret": 33, "thl": 243, "code": "17KA"}, {"shell": "Armor AP", "thermal": "Titanium SL2", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 40.5, "ret": 34, "thl": 229, "code": "17TA"}, {"shell": "Armor AP", "thermal": "Titanium with Nomex® Nano", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 37.1, "ret": 31, "thl": 264, "code": "17UA"}, {"shell": "Armor AP", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36.4, "ret": 21, "thl": 231, "code": "17AD"}, {"shell": "Armor AP", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 3000", "tpp": 35.2, "ret": 22, "thl": 248, "code": "17BD"}, {"shell": "Armor AP", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 3000", "tpp": 35, "ret": 21, "thl": 244, "code": "17ID"}, {"shell": "Armor AP", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 35.2, "ret": 22, "thl": 242, "code": "17TD"}, {"shell": "Armor AP", "thermal": "Glide Ice Pure", "moisture": "Stedair 3000", "tpp": 40, "ret": 26, "thl": 213, "code": "17VD"}, {"shell": "Armor AP", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36.4, "ret": 21, "thl": 231, "code": "17WD"}, {"shell": "Armor AP", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 35.4, "ret": 21, "thl": 233, "code": "17AG"}, {"shell": "Armor AP", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 35.3, "ret": 21, "thl": 269, "code": "17BG"}, {"shell": "Armor AP", "thermal": "Glide Ice Pure", "moisture": "Stedair 4000", "tpp": 40.2, "ret": 26, "thl": 231, "code": "17VG"}, {"shell": "Armor AP", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 35.4, "ret": 21, "thl": 233, "code": "17WG"}, {"shell": "Armor AP", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair Gold", "tpp": 35.1, "ret": 22, "thl": 265, "code": "17BN"}, {"shell": "Armor AP", "thermal": "Glide Ice Pure", "moisture": "Stedair Gold", "tpp": 38, "ret": 26, "thl": 223, "code": "17VN"}, {"shell": "Agility", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 38.5, "ret": 17, "thl": 258, "code": "38A2"}, {"shell": "Agility", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 39.8, "ret": 19, "thl": 270, "code": "38B2"}, {"shell": "Agility", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 35.2, "ret": 18, "thl": 265, "code": "38T2"}, {"shell": "Agility", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 44.1, "ret": 23, "thl": 240, "code": "38V2"}, {"shell": "Agility", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 38.5, "ret": 17, "thl": 258, "code": "38W2"}, {"shell": "Agility", "thermal": "Q8", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 42.3, "ret": 28, "thl": 234, "code": "3823"}, {"shell": "Agility", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.8, "ret": 25, "thl": 266, "code": "38A3"}, {"shell": "Agility", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38, "ret": 26, "thl": 284, "code": "38B3"}, {"shell": "Agility", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.6, "ret": 24, "thl": 282, "code": "38I3"}, {"shell": "Agility", "thermal": "Glide Ice with Nomex® Nano", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.6, "ret": 25, "thl": 292, "code": "38P3"}, {"shell": "Agility", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.1, "ret": 27, "thl": 275, "code": "38T3"}, {"shell": "Agility", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 44.1, "ret": 32, "thl": 233, "code": "38V3"}, {"shell": "Agility", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.8, "ret": 25, "thl": 266, "code": "38W3"}, {"shell": "Agility", "thermal": "Quantum 3D SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.1, "ret": 30, "thl": 262, "code": "38Z3"}, {"shell": "Agility", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 38, "ret": 32, "thl": 266, "code": "38T4"}, {"shell": "Agility", "thermal": "Titanium with Nomex® Nano", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 36.4, "ret": 33, "thl": 278, "code": "38U4"}, {"shell": "Agility", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 35.6, "ret": 19, "thl": 275, "code": "38T7"}, {"shell": "Agility", "thermal": "Quantum 3D SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 37.6, "ret": 21, "thl": 242, "code": "38Z7"}, {"shell": "Agility", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 43.2, "ret": 30, "thl": 266, "code": "38IA"}, {"shell": "Agility", "thermal": "Titanium with Nomex® Nano", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 41.1, "ret": 30, "thl": 272, "code": "38UA"}, {"shell": "Agility", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36.1, "ret": 19, "thl": 275, "code": "38AD"}, {"shell": "Agility", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 3000", "tpp": 37.5, "ret": 22, "thl": 268, "code": "38BD"}, {"shell": "Agility", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 36.3, "ret": 22, "thl": 265, "code": "38TD"}, {"shell": "Agility", "thermal": "Glide Ice Pure", "moisture": "Stedair 3000", "tpp": 41.2, "ret": 24, "thl": 232, "code": "38VD"}, {"shell": "Agility", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36.1, "ret": 19, "thl": 275, "code": "38WD"}, {"shell": "Agility", "thermal": "Quantum 3D SL2", "moisture": "Stedair 3000", "tpp": 35.2, "ret": 20, "thl": 262, "code": "38ZD"}, {"shell": "Agility", "thermal": "Q8", "moisture": "Stedair 4000", "tpp": 38.2, "ret": 21, "thl": 253, "code": "382G"}, {"shell": "Agility", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 37.5, "ret": 19, "thl": 288, "code": "38AG"}, {"shell": "Agility", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 37.6, "ret": 20, "thl": 293, "code": "38BG"}, {"shell": "Agility", "thermal": "Glide Ice with Nomex® Nano", "moisture": "Stedair 4000", "tpp": 35.6, "ret": 19, "thl": 305, "code": "38PG"}, {"shell": "Agility", "thermal": "Titanium SL2", "moisture": "Stedair 4000", "tpp": 37.4, "ret": 20, "thl": 288, "code": "38TG"}, {"shell": "Agility", "thermal": "Titanium with Nomex® Nano", "moisture": "Stedair 4000", "tpp": 35.2, "ret": 19, "thl": 312, "code": "38UG"}, {"shell": "Agility", "thermal": "Glide Ice Pure", "moisture": "Stedair 4000", "tpp": 42.4, "ret": 23, "thl": 249, "code": "38VG"}, {"shell": "Agility", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 37.5, "ret": 19, "thl": 288, "code": "38WG"}, {"shell": "Agility", "thermal": "Quantum 3D SL2", "moisture": "Stedair 4000", "tpp": 39.1, "ret": 20, "thl": 274, "code": "38ZG"}, {"shell": "Agility", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair Gold", "tpp": 35.8, "ret": 21, "thl": 300, "code": "38BN"}, {"shell": "Agility", "thermal": "Glide Ice Pure", "moisture": "Stedair Gold", "tpp": 38.7, "ret": 23, "thl": 256, "code": "38VN"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38, "ret": 27, "thl": 217, "code": "48A3"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.3, "ret": 27, "thl": 265, "code": "48B3"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.3, "ret": 25, "thl": 294, "code": "48I3"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 37.1, "ret": 26, "thl": 252, "code": "48T3"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Titanium with Nomex® Nano", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35, "ret": 25, "thl": 277, "code": "48U3"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 45.7, "ret": 31, "thl": 235, "code": "48V3"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38, "ret": 27, "thl": 217, "code": "48W3"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Quantum 3D SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.3, "ret": 26, "thl": 251, "code": "48Z3"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Q8", "moisture": "Stedair 3000", "tpp": 36.9, "ret": 23, "thl": 233, "code": "482D"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36.3, "ret": 20, "thl": 231, "code": "48AD"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 3000", "tpp": 39.3, "ret": 22, "thl": 260, "code": "48BD"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 3000", "tpp": 35.1, "ret": 19, "thl": 273, "code": "48ID"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 35.7, "ret": 21, "thl": 257, "code": "48TD"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36.3, "ret": 20, "thl": 231, "code": "48WD"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Q8", "moisture": "Stedair 4000", "tpp": 35.7, "ret": 22, "thl": 242, "code": "482G"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 36.4, "ret": 21, "thl": 216, "code": "48AG"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 38.8, "ret": 21, "thl": 279, "code": "48BG"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Glide Ice with Nomex® Nano", "moisture": "Stedair 4000", "tpp": 35.3, "ret": 19, "thl": 296, "code": "48PG"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Titanium SL2", "moisture": "Stedair 4000", "tpp": 35.3, "ret": 20, "thl": 282, "code": "48TG"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 36.4, "ret": 21, "thl": 216, "code": "48WG"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Quantum 3D SL2", "moisture": "Stedair 4000", "tpp": 39.2, "ret": 20, "thl": 264, "code": "48ZG"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Defender M SL2", "moisture": "Stedair Gold", "tpp": 35.2, "ret": 20, "thl": 277, "code": "48AN"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair Gold", "tpp": 35.5, "ret": 22, "thl": 281, "code": "48BN"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Glide Ice with PBI G2", "moisture": "Stedair Gold", "tpp": 35.4, "ret": 22, "thl": 262, "code": "48HN"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Defender M SL2", "moisture": "Stedair Gold", "tpp": 35.2, "ret": 20, "thl": 277, "code": "48WN"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Quantum 3D SL2", "moisture": "Stedair Gold", "tpp": 35, "ret": 23, "thl": 256, "code": "48ZN"}, {"shell": "PBI Peak5", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.6, "ret": 25, "thl": 249, "code": "51A3"}, {"shell": "PBI Peak5", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.6, "ret": 25, "thl": 249, "code": "51W3"}, {"shell": "PBI Peak5", "thermal": "Q8", "moisture": "Stedair 3000", "tpp": 35.6, "ret": 24, "thl": 223, "code": "512D"}, {"shell": "PBI Peak5", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 35.2, "ret": 22, "thl": 276, "code": "51TD"}, {"shell": "PBI Peak5", "thermal": "Q8", "moisture": "Stedair 4000", "tpp": 35.7, "ret": 25, "thl": 242, "code": "512G"}, {"shell": "PBI Peak5", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 35.3, "ret": 19, "thl": 246, "code": "51AG"}, {"shell": "PBI Peak5", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 36.7, "ret": 20, "thl": 289, "code": "51BG"}, {"shell": "PBI Peak5", "thermal": "Titanium SL2", "moisture": "Stedair 4000", "tpp": 35.3, "ret": 20, "thl": 276, "code": "51TG"}, {"shell": "PBI Peak5", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 35.3, "ret": 19, "thl": 246, "code": "51WG"}, {"shell": "PBI Peak5", "thermal": "Quantum 3D SL2", "moisture": "Stedair 4000", "tpp": 35.5, "ret": 20, "thl": 272, "code": "51ZG"}, {"shell": "Brigade 750", "thermal": "Q8", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 40.1, "ret": 25, "thl": 210, "code": "5622"}, {"shell": "Brigade 750", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 38.2, "ret": 19, "thl": 266, "code": "56B2"}, {"shell": "Brigade 750", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 38.5, "ret": 17, "thl": 289, "code": "56I2"}, {"shell": "Brigade 750", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.2, "ret": 27, "thl": 264, "code": "56A3"}, {"shell": "Brigade 750", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 37.3, "ret": 28, "thl": 290, "code": "56B3"}, {"shell": "Brigade 750", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.6, "ret": 26, "thl": 270, "code": "56T3"}, {"shell": "Brigade 750", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 42, "ret": 30, "thl": 248, "code": "56V3"}, {"shell": "Brigade 750", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.2, "ret": 27, "thl": 264, "code": "56W3"}, {"shell": "Brigade 750", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 38.5, "ret": 33, "thl": 256, "code": "56A4"}, {"shell": "Brigade 750", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 35.6, "ret": 33, "thl": 274, "code": "56I4"}, {"shell": "Brigade 750", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 38.5, "ret": 33, "thl": 256, "code": "56W4"}, {"shell": "Brigade 750", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 40.4, "ret": 19, "thl": 258, "code": "56A7"}, {"shell": "Brigade 750", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 37.7, "ret": 19, "thl": 272, "code": "56I7"}, {"shell": "Brigade 750", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 40.4, "ret": 19, "thl": 258, "code": "56W7"}, {"shell": "Brigade 750", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 38.4, "ret": 28, "thl": 281, "code": "56IA"}, {"shell": "Brigade 750", "thermal": "Q8", "moisture": "Stedair 3000", "tpp": 37.2, "ret": 23, "thl": 243, "code": "562D"}, {"shell": "Brigade 750", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 40.5, "ret": 18, "thl": 293, "code": "56AD"}, {"shell": "Brigade 750", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 3000", "tpp": 37.9, "ret": 19, "thl": 284, "code": "56BD"}, {"shell": "Brigade 750", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 3000", "tpp": 37.1, "ret": 17, "thl": 294, "code": "56ID"}, {"shell": "Brigade 750", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 39.5, "ret": 21, "thl": 274, "code": "56TD"}, {"shell": "Brigade 750", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 40.5, "ret": 18, "thl": 293, "code": "56WD"}, {"shell": "Brigade 750", "thermal": "Q8", "moisture": "Stedair 4000", "tpp": 35.3, "ret": 22, "thl": 262, "code": "562G"}, {"shell": "Brigade 750", "thermal": "Titanium SL2", "moisture": "Stedair 4000", "tpp": 35.5, "ret": 18, "thl": 309, "code": "56TG"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 36.1, "ret": 22, "thl": 237, "code": "62B2"}, {"shell": "PBI Max 7.0", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 35, "ret": 19, "thl": 250, "code": "62I2"}, {"shell": "PBI Max 7.0", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 36.6, "ret": 19, "thl": 241, "code": "62T2"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 42.3, "ret": 22, "thl": 239, "code": "62V2"}, {"shell": "PBI Max 7.0", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.4, "ret": 27, "thl": 238, "code": "62A3"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 37.4, "ret": 29, "thl": 255, "code": "62B3"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice with PBI G2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 42.1, "ret": 29, "thl": 245, "code": "62H3"}, {"shell": "PBI Max 7.0", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.4, "ret": 26, "thl": 272, "code": "62I3"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice with Nomex® Nano", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.1, "ret": 27, "thl": 276, "code": "62P3"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 40.1, "ret": 31, "thl": 238, "code": "62V3"}, {"shell": "PBI Max 7.0", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.4, "ret": 27, "thl": 238, "code": "62W3"}, {"shell": "PBI Max 7.0", "thermal": "Quantum 3D SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 37.9, "ret": 29, "thl": 241, "code": "62Z3"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 39.3, "ret": 37, "thl": 239, "code": "62B4"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice with Nomex® Nano", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 35, "ret": 35, "thl": 268, "code": "62P4"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 38.8, "ret": 23, "thl": 242, "code": "62B7"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice with Nomex® Nano", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 36.6, "ret": 22, "thl": 248, "code": "62P7"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice 2-Layer", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 40.4, "ret": 32, "thl": 247, "code": "62BA"}, {"shell": "PBI Max 7.0", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 37.6, "ret": 22, "thl": 225, "code": "62AD"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 3000", "tpp": 37.3, "ret": 24, "thl": 237, "code": "62BD"}, {"shell": "PBI Max 7.0", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 37.2, "ret": 23, "thl": 245, "code": "62TD"}, {"shell": "PBI Max 7.0", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 37.6, "ret": 22, "thl": 225, "code": "62WD"}, {"shell": "PBI Max 7.0", "thermal": "Quantum 3D SL2", "moisture": "Stedair 3000", "tpp": 37.5, "ret": 23, "thl": 210, "code": "62ZD"}, {"shell": "PBI Max 7.0", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 40.9, "ret": 20, "thl": 230, "code": "62AG"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 39.2, "ret": 21, "thl": 270, "code": "62BG"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice with PBI G2", "moisture": "Stedair 4000", "tpp": 36.7, "ret": 24, "thl": 245, "code": "62HG"}, {"shell": "PBI Max 7.0", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 4000", "tpp": 36.9, "ret": 21, "thl": 276, "code": "62IG"}, {"shell": "PBI Max 7.0", "thermal": "Titanium SL2", "moisture": "Stedair 4000", "tpp": 36.3, "ret": 21, "thl": 262, "code": "62TG"}, {"shell": "PBI Max 7.0", "thermal": "Titanium with Nomex® Nano", "moisture": "Stedair 4000", "tpp": 35, "ret": 20, "thl": 277, "code": "62UG"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice Pure", "moisture": "Stedair 4000", "tpp": 40.7, "ret": 25, "thl": 232, "code": "62VG"}, {"shell": "PBI Max 7.0", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 40.9, "ret": 20, "thl": 230, "code": "62WG"}, {"shell": "PBI Max 7.0", "thermal": "Quantum 3D SL2", "moisture": "Stedair 4000", "tpp": 36.1, "ret": 23, "thl": 246, "code": "62ZG"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair Gold", "tpp": 35.1, "ret": 22, "thl": 264, "code": "62BN"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice with PBI G2", "moisture": "Stedair Gold", "tpp": 35.8, "ret": 21, "thl": 265, "code": "62HN"}, {"shell": "PBI Max 7.0", "thermal": "Quantum 3D SL2", "moisture": "Stedair Gold", "tpp": 36.1, "ret": 24, "thl": 237, "code": "62ZN"}, {"shell": "PBI Max 6.0", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 35.7, "ret": 21, "thl": 235, "code": "72B2"}, {"shell": "PBI Max 6.0", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.6, "ret": 29, "thl": 255, "code": "72B3"}, {"shell": "PBI Max 6.0", "thermal": "Glide Ice with PBI G2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.8, "ret": 31, "thl": 236, "code": "72H3"}, {"shell": "PBI Max 6.0", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.3, "ret": 26, "thl": 243, "code": "72T3"}, {"shell": "PBI Max 6.0", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 41.3, "ret": 32, "thl": 229, "code": "72V3"}, {"shell": "PBI Max 6.0", "thermal": "Glide Ice 2-Layer", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 38.5, "ret": 32, "thl": 247, "code": "72BA"}, {"shell": "PBI Max 6.0", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 36.7, "ret": 23, "thl": 261, "code": "72BG"}, {"shell": "PBI Max 6.0", "thermal": "Glide Ice Pure", "moisture": "Stedair 4000", "tpp": 44.5, "ret": 26, "thl": 215, "code": "72VG"}, {"shell": "PBI Max 6.0", "thermal": "Glide Ice with PBI G2", "moisture": "Stedair Gold", "tpp": 35.2, "ret": 24, "thl": 236, "code": "72HN"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 40.1, "ret": 19, "thl": 251, "code": "75A2"}, {"shell": "Pioneer™", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 42.6, "ret": 19, "thl": 268, "code": "75B2"}, {"shell": "Pioneer™", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.5, "ret": 17, "thl": 277, "code": "75I2"}, {"shell": "Pioneer™", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.9, "ret": 19, "thl": 262, "code": "75K2"}, {"shell": "Pioneer™", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.1, "ret": 17, "thl": 274, "code": "75T2"}, {"shell": "Pioneer™", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.5, "ret": 20, "thl": 243, "code": "75V2"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 40.1, "ret": 19, "thl": 251, "code": "75W2"}, {"shell": "Pioneer™", "thermal": "Q8", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.4, "ret": 27, "thl": 249, "code": "7523"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39, "ret": 25, "thl": 270, "code": "75A3"}, {"shell": "Pioneer™", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.7, "ret": 27, "thl": 287, "code": "75B3"}, {"shell": "Pioneer™", "thermal": "Glide Ice with PBI G2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 40.9, "ret": 27, "thl": 270, "code": "75H3"}, {"shell": "Pioneer™", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36, "ret": 23, "thl": 298, "code": "75I3"}, {"shell": "Pioneer™", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 37.9, "ret": 26, "thl": 272, "code": "75T3"}, {"shell": "Pioneer™", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 42.8, "ret": 32, "thl": 252, "code": "75V3"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39, "ret": 25, "thl": 270, "code": "75W3"}, {"shell": "Pioneer™", "thermal": "Quantum 3D SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 37.4, "ret": 26, "thl": 263, "code": "75Z3"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 40.5, "ret": 33, "thl": 249, "code": "75A4"}, {"shell": "Pioneer™", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 37.1, "ret": 35, "thl": 272, "code": "75B4"}, {"shell": "Pioneer™", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 39, "ret": 33, "thl": 270, "code": "75I4"}, {"shell": "Pioneer™", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 42.8, "ret": 35, "thl": 252, "code": "75K4"}, {"shell": "Pioneer™", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 37.8, "ret": 34, "thl": 268, "code": "75T4"}, {"shell": "Pioneer™", "thermal": "Titanium with Nomex® Nano", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 35.7, "ret": 33, "thl": 271, "code": "75U4"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 40.5, "ret": 33, "thl": 249, "code": "75W4"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 39.6, "ret": 20, "thl": 250, "code": "75A7"}, {"shell": "Pioneer™", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 36.3, "ret": 19, "thl": 281, "code": "75I7"}, {"shell": "Pioneer™", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 39.8, "ret": 20, "thl": 264, "code": "75K7"}, {"shell": "Pioneer™", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 38.2, "ret": 19, "thl": 278, "code": "75T7"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 39.6, "ret": 20, "thl": 250, "code": "75W7"}, {"shell": "Pioneer™", "thermal": "Glide Ice 2-Layer", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 40.1, "ret": 30, "thl": 267, "code": "75BA"}, {"shell": "Pioneer™", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 40.7, "ret": 28, "thl": 287, "code": "75IA"}, {"shell": "Pioneer™", "thermal": "MPG S000108003 Equinox 3L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 43.1, "ret": 31, "thl": 271, "code": "75KA"}, {"shell": "Pioneer™", "thermal": "Titanium SL2", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 42, "ret": 31, "thl": 265, "code": "75TA"}, {"shell": "Pioneer™", "thermal": "Q8", "moisture": "Stedair 3000", "tpp": 35.6, "ret": 22, "thl": 247, "code": "752D"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36.5, "ret": 19, "thl": 289, "code": "75AD"}, {"shell": "Pioneer™", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 3000", "tpp": 36.5, "ret": 20, "thl": 277, "code": "75BD"}, {"shell": "Pioneer™", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 3000", "tpp": 35.2, "ret": 18, "thl": 287, "code": "75ID"}, {"shell": "Pioneer™", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 36, "ret": 21, "thl": 273, "code": "75TD"}, {"shell": "Pioneer™", "thermal": "Glide Ice Pure", "moisture": "Stedair 3000", "tpp": 47, "ret": 25, "thl": 240, "code": "75VD"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36.5, "ret": 19, "thl": 289, "code": "75WD"}, {"shell": "Pioneer™", "thermal": "Quantum 3D SL2", "moisture": "Stedair 3000", "tpp": 37.3, "ret": 19, "thl": 271, "code": "75ZD"}, {"shell": "Pioneer™", "thermal": "Q8", "moisture": "Stedair 4000", "tpp": 39.8, "ret": 22, "thl": 258, "code": "752G"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 40.1, "ret": 18, "thl": 296, "code": "75AG"}, {"shell": "Pioneer™", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 37.8, "ret": 19, "thl": 299, "code": "75BG"}, {"shell": "Pioneer™", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 4000", "tpp": 35.9, "ret": 18, "thl": 301, "code": "75IG"}, {"shell": "Pioneer™", "thermal": "Titanium SL2", "moisture": "Stedair 4000", "tpp": 36, "ret": 19, "thl": 294, "code": "75TG"}, {"shell": "Pioneer™", "thermal": "Glide Ice Pure", "moisture": "Stedair 4000", "tpp": 44, "ret": 24, "thl": 254, "code": "75VG"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 40.1, "ret": 18, "thl": 296, "code": "75WG"}, {"shell": "Pioneer™", "thermal": "Quantum 3D SL2", "moisture": "Stedair 4000", "tpp": 39.3, "ret": 20, "thl": 271, "code": "75ZG"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "Stedair Gold", "tpp": 36.5, "ret": 16, "thl": 295, "code": "75AN"}, {"shell": "Pioneer™", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair Gold", "tpp": 35.9, "ret": 19, "thl": 303, "code": "75BN"}, {"shell": "Pioneer™", "thermal": "Titanium SL2", "moisture": "Stedair Gold", "tpp": 35, "ret": 20, "thl": 289, "code": "75TN"}, {"shell": "Pioneer™", "thermal": "Glide Ice Pure", "moisture": "Stedair Gold", "tpp": 41.1, "ret": 23, "thl": 256, "code": "75VN"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "Stedair Gold", "tpp": 36.5, "ret": 16, "thl": 295, "code": "75WN"}, {"shell": "05WKRS7-60-AL8 / 05WKRS7-60-AL8-M", "thermal": "Q8", "moisture": "GORE-TEX CROSSTECH Prime Moisture Barrier", "tpp": 41, "ret": null, "thl": null, "code": "8022"}, {"shell": "05WKRS7-60-AL8 / 05WKRS7-60-AL8-M", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.1, "ret": null, "thl": null, "code": "80I3"}, {"shell": "05WKRS7-60-AL8 / 05WKRS7-60-AL8-M", "thermal": "Caldura SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.3, "ret": null, "thl": null, "code": "80Q3"}, {"shell": "05WKRS7-60-AL8 / 05WKRS7-60-AL8-M", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 40.4, "ret": null, "thl": null, "code": "80T3"}, {"shell": "05WKRS7-60-AL8 / 05WKRS7-60-AL8-M", "thermal": "Q8", "moisture": "Stedair 3000", "tpp": 39.9, "ret": null, "thl": null, "code": "802D"}, {"shell": "05WKRS7-60-AL8 / 05WKRS7-60-AL8-M", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 3000", "tpp": 38.9, "ret": null, "thl": null, "code": "80ID"}, {"shell": "05WKRS7-60-AL8 / 05WKRS7-60-AL8-M", "thermal": "Caldura SL2", "moisture": "Stedair 3000", "tpp": 39.4, "ret": null, "thl": null, "code": "80QD"}, {"shell": "05WKRS7-60-AL8 / 05WKRS7-60-AL8-M", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 39.7, "ret": null, "thl": null, "code": "80TD"}, {"shell": "Advance", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 38.7, "ret": 19, "thl": 256, "code": "89I2"}, {"shell": "Advance", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.8, "ret": 27, "thl": 229, "code": "89A3"}, {"shell": "Advance", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.5, "ret": 28, "thl": 257, "code": "89B3"}, {"shell": "Advance", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.9, "ret": 25, "thl": 271, "code": "89I3"}, {"shell": "Advance", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.3, "ret": 28, "thl": 249, "code": "89T3"}, {"shell": "Advance", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.8, "ret": 27, "thl": 229, "code": "89W3"}, {"shell": "Advance", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 40.1, "ret": 21, "thl": 223, "code": "89AD"}, {"shell": "Advance", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 3000", "tpp": 40.6, "ret": 18, "thl": 279, "code": "89ID"}, {"shell": "Advance", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 39.8, "ret": 23, "thl": 243, "code": "89TD"}, {"shell": "Advance", "thermal": "Glide Ice Pure", "moisture": "Stedair 3000", "tpp": 46, "ret": 27, "thl": 210, "code": "89VD"}, {"shell": "Advance", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 40.1, "ret": 21, "thl": 223, "code": "89WD"}, {"shell": "Advance", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 38.5, "ret": 20, "thl": 229, "code": "89AG"}, {"shell": "Advance", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 37.8, "ret": 20, "thl": 265, "code": "89BG"}, {"shell": "Advance", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 4000", "tpp": 37.1, "ret": 20, "thl": 273, "code": "89IG"}, {"shell": "Advance", "thermal": "Titanium SL2", "moisture": "Stedair 4000", "tpp": 37.7, "ret": 21, "thl": 257, "code": "89TG"}, {"shell": "Advance", "thermal": "Glide Ice Pure", "moisture": "Stedair 4000", "tpp": 44.4, "ret": 24, "thl": 231, "code": "89VG"}, {"shell": "Advance", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 38.5, "ret": 20, "thl": 229, "code": "89WG"}, {"shell": "Advance", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair Gold", "tpp": 35.6, "ret": 20, "thl": 270, "code": "89BN"}, {"shell": "Flex7", "thermal": "Q8", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 36.7, "ret": 21, "thl": 253, "code": "9622"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.3, "ret": 18, "thl": 265, "code": "96A2"}, {"shell": "Flex7", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 39.8, "ret": 19, "thl": 257, "code": "96B2"}, {"shell": "Flex7", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 35.1, "ret": 19, "thl": 272, "code": "96I2"}, {"shell": "Flex7", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 36.9, "ret": 19, "thl": 250, "code": "96K2"}, {"shell": "Flex7", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 35.7, "ret": 18, "thl": 252, "code": "96T2"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.3, "ret": 18, "thl": 265, "code": "96W2"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 40.8, "ret": 25, "thl": 271, "code": "96A3"}, {"shell": "Flex7", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.1, "ret": 27, "thl": 272, "code": "96B3"}, {"shell": "Flex7", "thermal": "Glide Ice with PBI G2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.6, "ret": 30, "thl": 252, "code": "96H3"}, {"shell": "Flex7", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.2, "ret": 25, "thl": 300, "code": "96I3"}, {"shell": "Flex7", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.9, "ret": 28, "thl": 262, "code": "96T3"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 40.8, "ret": 25, "thl": 271, "code": "96W3"}, {"shell": "Flex7", "thermal": "Quantum 3D SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.2, "ret": 26, "thl": 264, "code": "96Z3"}, {"shell": "Flex7", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 37.7, "ret": 37, "thl": 240, "code": "96K4"}, {"shell": "Flex7", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 35.8, "ret": 32, "thl": 253, "code": "96T4"}, {"shell": "Flex7", "thermal": "Titanium with Nomex® Nano", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 35, "ret": 33, "thl": 267, "code": "96U4"}, {"shell": "Flex7", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 35.7, "ret": 20, "thl": 268, "code": "96T7"}, {"shell": "Flex7", "thermal": "Titanium SL2", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 41.4, "ret": 31, "thl": 256, "code": "96TA"}, {"shell": "Flex7", "thermal": "Titanium with Nomex® Nano", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 42.4, "ret": 29, "thl": 278, "code": "96UA"}, {"shell": "Flex7", "thermal": "Q8", "moisture": "Stedair 3000", "tpp": 38, "ret": 24, "thl": 227, "code": "962D"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36, "ret": 18, "thl": 272, "code": "96AD"}, {"shell": "Flex7", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 3000", "tpp": 37.2, "ret": 22, "thl": 264, "code": "96BD"}, {"shell": "Flex7", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 3000", "tpp": 36, "ret": 19, "thl": 275, "code": "96ID"}, {"shell": "Flex7", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 35.4, "ret": 21, "thl": 270, "code": "96TD"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36, "ret": 18, "thl": 272, "code": "96WD"}, {"shell": "Flex7", "thermal": "Quantum 3D SL2", "moisture": "Stedair 3000", "tpp": 41.8, "ret": 22, "thl": 242, "code": "96ZD"}, {"shell": "Flex7", "thermal": "Q8", "moisture": "Stedair 4000", "tpp": 39.5, "ret": 22, "thl": 249, "code": "962G"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 37.5, "ret": 19, "thl": 239, "code": "96AG"}, {"shell": "Flex7", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 39, "ret": 20, "thl": 286, "code": "96BG"}, {"shell": "Flex7", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 4000", "tpp": 35.9, "ret": 17, "thl": 288, "code": "96IG"}, {"shell": "Flex7", "thermal": "Titanium SL2", "moisture": "Stedair 4000", "tpp": 39.5, "ret": 20, "thl": 283, "code": "96TG"}, {"shell": "Flex7", "thermal": "Titanium with Nomex® Nano", "moisture": "Stedair 4000", "tpp": 35.1, "ret": 19, "thl": 305, "code": "96UG"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 37.5, "ret": 19, "thl": 239, "code": "96WG"}, {"shell": "Flex7", "thermal": "Quantum 3D SL2", "moisture": "Stedair 4000", "tpp": 39.4, "ret": 20, "thl": 261, "code": "96ZG"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "Stedair Gold", "tpp": 35.2, "ret": 20, "thl": 289, "code": "96AN"}, {"shell": "Flex7", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair Gold", "tpp": 35, "ret": 20, "thl": 295, "code": "96BN"}, {"shell": "Flex7", "thermal": "Glide Ice with PBI G2", "moisture": "Stedair Gold", "tpp": 37.9, "ret": 22, "thl": 268, "code": "96HN"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "Stedair Gold", "tpp": 35.2, "ret": 20, "thl": 289, "code": "96WN"}, {"shell": "Flex7", "thermal": "Quantum 3D SL2", "moisture": "Stedair Gold", "tpp": 35.6, "ret": 20, "thl": 271, "code": "96ZN"}];
 
-// ── Performance Summary Logic (NFPA 1970 based) ─────────────────────────────
-// TPP tiers: min 35 cal/cm²  |  RET tiers: max 45 m²Pa/W  |  THL tiers: min 205 W/m²
-// Ranges derived from actual composite data in this dataset.
-
-function tppSummary(tpp) {
-  if (tpp === null) return null;
-  if (tpp >= 44) return {
-    badge: 'Excellent', cls: 'badge-excellent',
-    text: `TPP of ${tpp} cal/cm² is exceptional — well above the NFPA 1970 minimum of 35. This composite provides outstanding thermal protection and gives the wearer significantly more time before a second-degree burn threshold is reached in a flash fire or intense heat exposure.`
-  };
-  if (tpp >= 40) return {
-    badge: 'Good', cls: 'badge-good',
-    text: `TPP of ${tpp} cal/cm² is strong — comfortably above the NFPA 1970 minimum of 35. The wearer gets solid thermal protection with meaningful margin above the minimum requirement.`
-  };
-  if (tpp >= 37) return {
-    badge: 'Moderate', cls: 'badge-moderate',
-    text: `TPP of ${tpp} cal/cm² meets NFPA 1970 and provides adequate thermal protection. It clears the minimum standard, though it does not carry a large margin above it.`
-  };
-  return {
-    badge: 'Minimum', cls: 'badge-low',
-    text: `TPP of ${tpp} cal/cm² meets the NFPA 1970 minimum of 35 but offers limited margin above it. Thermal protection is compliant — the wearer is covered — but this composite prioritizes breathability and comfort over maximum heat defense.`
-  };
+// ── Rating functions ──────────────────────────────────────────────────────────
+function tppRating(v) {
+  if (v === null || v === undefined) return null;
+  if (v > 42.5)  return { tier:'encapsulated', badge:'Too High',  cls:'badge-low',      label:'Over-Encapsulated' };
+  if (v >= 40)   return { tier:'excellent',    badge:'Excellent', cls:'badge-excellent', label:'Excellent' };
+  if (v >= 38.6) return { tier:'good',         badge:'Good',      cls:'badge-good',      label:'Good' };
+  if (v >= 37)   return { tier:'moderate',     badge:'Moderate',  cls:'badge-moderate',  label:'Moderate' };
+  return               { tier:'minimum',       badge:'Minimum',   cls:'badge-minimum',   label:'Minimum' };
+}
+function thlRating(v) {
+  if (v === null || v === undefined) return null;
+  if (v > 300)  return { tier:'excellent', badge:'Excellent', cls:'badge-excellent', label:'Excellent' };
+  if (v > 285)  return { tier:'great',     badge:'Great',     cls:'badge-great',     label:'Great' };
+  if (v >= 265) return { tier:'good',      badge:'Good',      cls:'badge-good',      label:'Good' };
+  if (v >= 240) return { tier:'moderate',  badge:'Moderate',  cls:'badge-moderate',  label:'Moderate' };
+  if (v >= 215) return { tier:'low',       badge:'Low',       cls:'badge-low',       label:'Low' };
+  return              { tier:'minimum',    badge:'Minimum',   cls:'badge-minimum',   label:'Minimum / Too Low' };
+}
+function retRating(v) {
+  if (v === null || v === undefined) return null;
+  if (v <= 20)   return { tier:'excellent', badge:'Excellent', cls:'badge-excellent', label:'Excellent' };
+  if (v <= 24.9) return { tier:'good',      badge:'Good',      cls:'badge-good',      label:'Good' };
+  if (v <= 30)   return { tier:'moderate',  badge:'Moderate',  cls:'badge-moderate',  label:'Moderate' };
+  return               { tier:'low',        badge:'Low',       cls:'badge-low',       label:'Low / Minimum' };
 }
 
-function retSummary(ret) {
-  if (ret === null) return null;
-  if (ret <= 19) return {
-    badge: 'Excellent', cls: 'badge-excellent',
-    text: `RET of ${ret} m²Pa/W is outstanding — among the lowest in the lineup. The system allows evaporative heat to escape very efficiently, especially critical once a firefighter is sweating and the gear is wet. The wearer will off-gas heat effectively and recover faster between work cycles.`
-  };
-  if (ret <= 24) return {
-    badge: 'Good', cls: 'badge-good',
-    text: `RET of ${ret} m²Pa/W is good. Evaporative heat transfer is above average — once the wearer begins sweating, this composite allows heat to escape at a solid rate. Off-gassing is noticeably better than mid-range composites.`
-  };
-  if (ret <= 30) return {
-    badge: 'Moderate', cls: 'badge-moderate',
-    text: `RET of ${ret} m²Pa/W is moderate. The composite will restrict some evaporative heat transfer, particularly once gear is wet from perspiration. The wearer may notice increased retained heat during extended work cycles compared to lower-RET options.`
-  };
-  if (ret <= 37) return {
-    badge: 'High', cls: 'badge-low',
-    text: `RET of ${ret} m²Pa/W is on the high side. Once the wearer is sweating and gear is wet, this composite will hold more heat against the body. Heat off-gassing is noticeably restricted — the wearer will feel warmer during sustained activity and rehabilitation periods will be more important.`
-  };
-  return {
-    badge: 'Very High', cls: 'badge-low',
-    text: `RET of ${ret} m²Pa/W is among the highest in this lineup and approaching the NFPA 1970 maximum of 45. Evaporative heat transfer is significantly restricted, especially in wet conditions. The wearer will retain substantially more body heat — this composite prioritizes thermal protection over breathability.`
-  };
+// ── Descriptions ──────────────────────────────────────────────────────────────
+function tppDesc(v, tier) {
+  if (tier === 'encapsulated') return 'At ' + v + ' cal/cm\u00b2 this composite exceeds the practical upper limit. The wearer gains maximum thermal shielding but risks not sensing dangerous heat in time to react.';
+  if (tier === 'excellent')    return 'At ' + v + ' cal/cm\u00b2 this composite delivers outstanding thermal protection \u2014 well above the NFPA 1970 minimum with significant margin before injury threshold.';
+  if (tier === 'good')         return 'At ' + v + ' cal/cm\u00b2 thermal protection is solid, comfortably above the minimum with meaningful safety margin.';
+  if (tier === 'moderate')     return 'At ' + v + ' cal/cm\u00b2 thermal protection meets NFPA 1970 with moderate margin. Adequate for most environments.';
+  return 'At ' + v + ' cal/cm\u00b2 this composite just clears the NFPA 1970 minimum of 35. The safety margin above the threshold is limited.';
+}
+function retDesc(v, tier) {
+  if (tier === 'excellent') return 'RET of ' + v + ' is outstanding \u2014 among the best in the lineup. Heat escapes the system very efficiently, especially critical once the firefighter is sweating and gear is wet.';
+  if (tier === 'good')      return 'RET of ' + v + ' is good. Evaporative heat transfer is above average \u2014 the wearer will off-gas heat effectively during work cycles.';
+  if (tier === 'moderate')  return 'RET of ' + v + ' is moderate. Some evaporative heat will be retained, particularly once gear is wet. The wearer may notice more heat buildup during extended activity.';
+  return 'RET of ' + v + ' is high \u2014 heat off-gassing is significantly restricted once gear is wet from perspiration. Rehabilitation time between work cycles becomes increasingly important.';
+}
+function thlDesc(v, tier) {
+  if (tier === 'excellent') return 'THL of ' + v + ' W/m\u00b2 is exceptional \u2014 among the top performers in the lineup. The wearer will feel noticeably cooler and more comfortable during sustained operations.';
+  if (tier === 'great')     return 'THL of ' + v + ' W/m\u00b2 is great. Heat dissipation is very strong \u2014 most firefighters will notice the comfort advantage over lower-THL gear.';
+  if (tier === 'good')      return 'THL of ' + v + ' W/m\u00b2 is good. The system manages heat load well and provides comfortable wear across most work durations.';
+  if (tier === 'moderate')  return 'THL of ' + v + ' W/m\u00b2 is moderate. Adequate heat loss, though the wearer may notice more heat buildup during longer operations versus higher-THL options.';
+  if (tier === 'low')       return 'THL of ' + v + ' W/m\u00b2 is low. The composite retains significant body heat \u2014 the wearer will feel warmer during activity and rehab between cycles is more critical.';
+  return 'THL of ' + v + ' W/m\u00b2 is at or near the NFPA 1970 minimum. This composite retains a lot of heat. It typically trades comfort for higher thermal protection.';
+}
+function buildOverall(tppR, retR, thlR) {
+  if (!tppR && !retR && !thlR) return '';
+  if (!retR && !thlR) return 'RET and THL data not available for this composite. TPP meets NFPA 1970.';
+  var tppGood = tppR && (tppR.tier === 'good' || tppR.tier === 'excellent');
+  var tppOver = tppR && tppR.tier === 'encapsulated';
+  var retGood = retR && (retR.tier === 'excellent' || retR.tier === 'good');
+  var retBad  = retR && retR.tier === 'low';
+  var thlGood = thlR && (thlR.tier === 'good' || thlR.tier === 'great' || thlR.tier === 'excellent');
+  var thlBad  = thlR && (thlR.tier === 'minimum' || thlR.tier === 'low');
+  if (tppOver) return 'This composite prioritizes maximum thermal shielding to the point where the wearer may not feel heat cues in time. Best suited for specialized operations with heightened monitoring protocols.';
+  if (tppGood && retGood && thlGood) return 'This is a well-rounded, high-performing composite. Strong protection, excellent breathability, and good heat dissipation make it a solid all-around choice.';
+  if (tppGood && (retBad || thlBad)) return 'This composite leans heavily toward thermal protection. The trade-off is reduced breathability and heat dissipation \u2014 the wearer stays well-protected but will feel the heat during sustained work.';
+  if (!tppGood && retGood && thlGood) return 'This composite is optimized for wearer comfort and breathability. It meets NFPA 1970 thermal requirements while excelling at heat management \u2014 a strong fit for high-activity deployments where heat stress is a concern.';
+  if (retBad && thlBad) return 'Protection-first composite. The wearer trades comfort for thermal margin. Rehabilitation between work cycles is essential, particularly in warm environments.';
+  return 'This composite provides balanced NFPA 1970-compliant performance. Review the individual values above to determine the best fit for your department\'s priorities.';
 }
 
-function thlSummary(thl) {
-  if (thl === null) return null;
-  if (thl >= 290) return {
-    badge: 'Excellent', cls: 'badge-excellent',
-    text: `THL of ${thl} W/m² is among the best in the lineup. The system dissipates heat extremely well — the wearer will feel noticeably cooler and more comfortable during activity. This is a standout composite for heat management and comfort.`
-  };
-  if (thl >= 270) return {
-    badge: 'Very Good', cls: 'badge-good',
-    text: `THL of ${thl} W/m² is very good. The composite moves heat away from the wearer efficiently. Most firefighters will notice the difference compared to lower-THL gear — comfort during extended work is meaningfully better.`
-  };
-  if (thl >= 250) return {
-    badge: 'Good', cls: 'badge-good',
-    text: `THL of ${thl} W/m² is above average. The composite manages heat load well and provides comfortable wear for most conditions and work durations.`
-  };
-  if (thl >= 230) return {
-    badge: 'Moderate', cls: 'badge-moderate',
-    text: `THL of ${thl} W/m² is average for this product line. The composite meets NFPA 1970 requirements, though the wearer may notice more heat buildup during extended activity compared to higher-THL options. Every 15 W/m² is a perceptible difference to the wearer.`
-  };
-  return {
-    badge: 'Low', cls: 'badge-low',
-    text: `THL of ${thl} W/m² is on the lower end of this lineup, near the NFPA 1970 minimum of 205. The composite retains more heat against the body — the wearer will feel warmer during activity. This is typically a trade-off for higher thermal protection (TPP), and rehabilitation time between work cycles becomes more important.`
-  };
-}
-
+// ── Tailboard Truth builder ────────────────────────────────────────────────────
 function buildSummaryHTML(r) {
-  const tpp = tppSummary(r.tpp);
-  const ret = retSummary(r.ret);
-  const thl = thlSummary(r.thl);
+  var tppR = tppRating(r.tpp);
+  var thlR = thlRating(r.thl);
+  var retR = retRating(r.ret);
+  var rowsHTML = '';
+  if (tppR) rowsHTML += '<div class="summary-row"><span class="summary-badge ' + tppR.cls + '">' + tppR.badge + '</span><span class="summary-text"><strong>TPP ' + r.tpp + ':</strong> ' + tppDesc(r.tpp, tppR.tier) + '</span></div>';
+  if (retR) rowsHTML += '<div class="summary-row"><span class="summary-badge ' + retR.cls + '">' + retR.badge + '</span><span class="summary-text"><strong>RET ' + r.ret + ':</strong> ' + retDesc(r.ret, retR.tier) + '</span></div>';
+  if (thlR) rowsHTML += '<div class="summary-row"><span class="summary-badge ' + thlR.cls + '">' + thlR.badge + '</span><span class="summary-text"><strong>THL ' + r.thl + ':</strong> ' + thlDesc(r.thl, thlR.tier) + '</span></div>';
 
-  // If all three are null (shouldn't happen), skip
-  if (!tpp && !ret && !thl) return '';
-
-  // Overall narrative
-  let overall = '';
-  const hasAll = tpp && ret && thl;
-  if (hasAll) {
-    // Determine the dominant story
-    const tppGood  = r.tpp >= 40;
-    const retGood  = r.ret <= 24;
-    const thlGood  = r.thl >= 270;
-    const retHigh  = r.ret > 30;
-    const thlLow   = r.thl < 240;
-
-    if (tppGood && retGood && thlGood) {
-      overall = 'This is a well-rounded, high-performing composite. Strong thermal protection, excellent breathability, and very good heat dissipation make it a solid choice for demanding work environments.';
-    } else if (tppGood && (retHigh || thlLow)) {
-      overall = 'This composite leans toward maximum thermal protection. The trade-off is reduced breathability and/or heat dissipation — the wearer gets strong protection but will feel the heat more during sustained activity. Best suited for departments that prioritize protection margin over comfort.';
-    } else if (!tppGood && retGood && thlGood) {
-      overall = 'This composite is optimized for wearer comfort and breathability. Thermal protection meets NFPA 1970 requirements with less margin above minimum, while heat management is a clear strength. A good fit for high-activity, longer-duration deployments where heat stress is a concern.';
-    } else if (retGood && thlGood) {
-      overall = 'Comfort and breathability are the strengths here. Lower RET and higher THL mean the wearer can off-gas heat efficiently — particularly valuable in Florida\'s heat and humidity. Thermal protection meets the standard.';
-    } else if (retHigh && thlLow) {
-      overall = 'This is a protection-first composite. The wearer trades some comfort for thermal margin. Rehabilitation between work cycles should be planned accordingly, particularly in warm environments.';
-    } else {
-      overall = 'This composite provides balanced NFPA 1970-compliant performance across all three metrics. Review the individual values above to determine the best fit for your department\'s priorities.';
-    }
-  } else if (!ret && !thl) {
-    overall = 'RET and THL data are not available for this composite. Thermal protection (TPP) meets NFPA 1970 requirements.';
+  var warnList = [];
+  if (tppR && tppR.tier === 'encapsulated') {
+    warnList.push('<strong>Over-Encapsulation Risk:</strong> TPP above 42.5 cal/cm\u00b2 means this composite is so thermally protective that the wearer may not feel dangerous heat levels until it is too late to react. This can delay the instinctive response to exit a high-heat environment. Use with caution and ensure heightened situational awareness protocols are in place.');
   }
-
-  const rows = [tpp, ret, thl].filter(Boolean).map((s, i) => {
-    const label = i === 0 ? 'TPP' : (i === 1 && ret ? 'RET' : 'THL');
-    // re-map index to correct label since we filter nulls
-    return s;
-  });
-
-  const labels = ['TPP', 'RET', 'THL'];
-  const items  = [tpp, ret, thl];
-
-  let rowsHTML = '';
-  items.forEach((s, i) => {
-    if (!s) return;
-    rowsHTML += `
-      <div class="summary-row">
-        <span class="summary-badge ${s.cls}">${s.badge}</span>
-        <span class="summary-text"><strong>${labels[i]}:</strong> ${s.text}</span>
-      </div>`;
-  });
-
-  // Safety warnings
-  const warnList = [];
-  if (r.tpp !== null && r.tpp < 37) {
-    warnList.push('⚠️ <strong>Low Thermal Protection:</strong> This composite meets the NFPA 1970 minimum but with limited margin. In a flash fire or sudden high-heat event, the window before injury is narrower. Departments prioritizing maximum protection should consider a higher-TPP option.');
+  if (tppR && tppR.tier === 'minimum') {
+    warnList.push('<strong>Minimum Thermal Protection:</strong> TPP of ' + r.tpp + ' cal/cm\u00b2 meets the NFPA 1970 floor but provides limited margin above it. In a flash fire or sudden high-heat event the window before injury is narrow.');
   }
-  if ((r.thl !== null && r.thl < 235) || (r.ret !== null && r.ret > 30)) {
-    const parts = [];
-    if (r.thl !== null && r.thl < 235) parts.push(`low THL (${r.thl} W/m²)`);
-    if (r.ret !== null && r.ret > 30) parts.push(`high RET (${r.ret} m²Pa/W)`);
-    warnList.push(`⚠️ <strong>Elevated Overheating Risk:</strong> This composite has ${parts.join(' and ')}, which limits the body's ability to shed heat — especially once gear is wet from sweat. Firefighters wearing this system face greater heat stress risk during extended operations. Strict rehabilitation and hydration protocols are essential.`);
+  if ((thlR && (thlR.tier === 'minimum' || thlR.tier === 'low')) || (retR && retR.tier === 'low')) {
+    var parts = [];
+    if (thlR && (thlR.tier === 'minimum' || thlR.tier === 'low')) parts.push('low THL (' + r.thl + ' W/m\u00b2)');
+    if (retR && retR.tier === 'low') parts.push('high RET (' + r.ret + ' m\u00b2\u00b7Pa/W)');
+    warnList.push('<strong>Elevated Overheating Risk:</strong> This composite has ' + parts.join(' and ') + ', limiting the body\'s ability to shed heat \u2014 especially once gear is wet from sweat. Strict rehabilitation and hydration protocols are essential.');
   }
-  const warnings = warnList.length
-    ? `<div class="summary-warnings">${warnList.map(w=>`<div class="summary-warn-item">${w}</div>`).join('')}</div>`
-    : '';
-
-  return `<div class="summary-card">
-    <div class="summary-title">🚒 Tailboard Truth</div>
-    <div class="summary-rows">${rowsHTML}</div>
-    ${warnings}
-    ${overall ? `<div class="summary-overall">${overall}</div>` : ''}
-  </div>`;
+  var warnings = '';
+  if (warnList.length) {
+    warnings = '<div class="summary-warnings">' + warnList.map(function(w){ return '<div class="summary-warn-item">\u26a0\ufe0f ' + w + '</div>'; }).join('') + '</div>';
+  }
+  var overall = buildOverall(tppR, retR, thlR);
+  return '<div class="summary-card"><div class="summary-title">\uD83D\uDE92 Tailboard Truth</div><div class="summary-rows">' + rowsHTML + '</div>' + warnings + (overall ? '<div class="summary-overall">' + overall + '</div>' : '') + '</div>';
 }
 
-// ── Helpers ─────────────────────────────────────────────────────────────────
-const fmt = v => (v === null || v === undefined) ? 'N/A' : v;
-
+// ── Metric card & result builder ──────────────────────────────────────────────
+function fmt(v) { return (v === null || v === undefined) ? 'N/A' : v; }
 function metricCard(label, value, unit, icon, cls, desc) {
-  return `<div class="metric ${cls}">
-    <div class="metric-icon">${icon}</div>
-    <div class="metric-value">${fmt(value)}</div>
-    <div class="metric-unit">${unit}</div>
-    <div class="metric-label">${label}</div>
-    <div class="metric-desc">${desc}</div>
-  </div>`;
+  return '<div class="metric ' + cls + '"><div class="metric-icon">' + icon + '</div><div class="metric-value">' + fmt(value) + '</div><div class="metric-unit">' + unit + '</div><div class="metric-label">' + label + '</div><div class="metric-desc">' + desc + '</div></div>';
+}
+function buildResultHTML(r) {
+  var header = '<div class="result-header"><span class="code-badge">Code: ' + r.code + '</span><div class="composite-name">' + r.shell + '<br>' + r.thermal + ' \u00b7 ' + r.moisture + '</div></div>';
+  return '<div class="card results">' + header + '<div class="metrics">' +
+    metricCard('TPP', r.tpp, 'cal/cm\u00b2', '\uD83D\uDD25', 'tpp', 'Thermal Protective Performance') +
+    metricCard('RET', r.ret, 'm\u00b2\u00b7Pa/W', '\uD83D\uDCA7', 'ret', 'Resistance to Evaporative Heat') +
+    metricCard('THL', r.thl, 'W/m\u00b2', '\uD83C\uDF21\uFE0F', 'thl', 'Total Heat Loss') +
+    '</div></div>' + buildSummaryHTML(r);
 }
 
-function buildResultHTML(r, showComposite=false) {
-  let header = '';
-  if (showComposite) {
-    header = `<div class="result-header">
-      <span class="code-badge">Code: ${r.code}</span>
-      <div class="composite-name">
-        ${r.shell}<br>
-        ${r.thermal} · ${r.moisture}
-      </div>
-    </div>`;
-  }
-  return `<div class="card results">
-    ${header}
-    <div class="metrics">
-      ${metricCard('TPP', r.tpp, 'cal/cm²', '🔥', 'tpp', 'Thermal Protective Performance')}
-      ${metricCard('RET', r.ret, 'm²·Pa/W', '💧', 'ret', 'Resistance to Evaporative Heat')}
-      ${metricCard('THL', r.thl, 'W/m²', '🌡️', 'thl', 'Total Heat Loss')}
-    </div>
-  </div>
-  ${buildSummaryHTML(r)}`;
-}
-
-// ── Mode switch ──────────────────────────────────────────────────────────────
-let currentMode = 'dropdown';
+// ── Mode switch ───────────────────────────────────────────────────────────────
+var currentMode = 'dropdown';
 function switchMode(mode) {
   currentMode = mode;
-  document.getElementById('panel-dropdown').style.display = mode==='dropdown' ? '' : 'none';
-  document.getElementById('panel-code').style.display     = mode==='code'     ? '' : 'none';
-  document.getElementById('tab-dropdown').classList.toggle('active', mode==='dropdown');
-  document.getElementById('tab-code').classList.toggle('active', mode==='code');
-  document.getElementById('tab-dropdown').setAttribute('aria-selected', mode==='dropdown');
-  document.getElementById('tab-code').setAttribute('aria-selected', mode==='code');
+  ['dropdown','code','range'].forEach(function(m) {
+    document.getElementById('panel-' + m).style.display = mode === m ? '' : 'none';
+    document.getElementById('tab-' + m).classList.toggle('active', mode === m);
+    document.getElementById('tab-' + m).setAttribute('aria-selected', mode === m);
+  });
 }
 
-// ── Dropdown logic ───────────────────────────────────────────────────────────
+// ── Dropdown logic ────────────────────────────────────────────────────────────
 function populateSelect(el, items, placeholder) {
-  el.innerHTML = `<option value="">${placeholder}</option>`;
-  items.forEach(v => { const o=document.createElement('option'); o.value=o.textContent=v; el.appendChild(o); });
+  el.innerHTML = '<option value="">' + placeholder + '</option>';
+  items.forEach(function(v) { var o = document.createElement('option'); o.value = o.textContent = v; el.appendChild(o); });
 }
-
-const shells = [...new Set(DATA.map(r=>r.shell))];
+var shells = Array.from(new Set(DATA.map(function(r){ return r.shell; })));
 populateSelect(document.getElementById('sel-shell'), shells, '— Select Outer Shell —');
 
 function onShellChange() {
-  const shell = document.getElementById('sel-shell').value;
-  const thermals = [...new Set(DATA.filter(r=>r.shell===shell).map(r=>r.thermal))];
-  const tEl = document.getElementById('sel-thermal');
-  const mEl = document.getElementById('sel-moisture');
+  var shell = document.getElementById('sel-shell').value;
+  var tEl = document.getElementById('sel-thermal');
+  var mEl = document.getElementById('sel-moisture');
   populateSelect(tEl, [], '— Select Thermal Barrier —');
   populateSelect(mEl, [], '— Select Moisture Barrier —');
-  tEl.disabled = !shell;
-  mEl.disabled = true;
-  if (shell) populateSelect(tEl, thermals, '— Select Thermal Barrier —');
+  tEl.disabled = !shell; mEl.disabled = true;
+  if (shell) populateSelect(tEl, Array.from(new Set(DATA.filter(function(r){ return r.shell === shell; }).map(function(r){ return r.thermal; }))), '— Select Thermal Barrier —');
   document.getElementById('result-dropdown').innerHTML = '';
   document.getElementById('clear-dropdown').style.display = 'none';
 }
-
 function onThermalChange() {
-  const shell   = document.getElementById('sel-shell').value;
-  const thermal = document.getElementById('sel-thermal').value;
-  const mEl     = document.getElementById('sel-moisture');
-  const moistures = [...new Set(DATA.filter(r=>r.shell===shell&&r.thermal===thermal).map(r=>r.moisture))];
+  var shell = document.getElementById('sel-shell').value;
+  var thermal = document.getElementById('sel-thermal').value;
+  var mEl = document.getElementById('sel-moisture');
   populateSelect(mEl, [], '— Select Moisture Barrier —');
   mEl.disabled = !thermal;
-  if (thermal) populateSelect(mEl, moistures, '— Select Moisture Barrier —');
+  if (thermal) populateSelect(mEl, Array.from(new Set(DATA.filter(function(r){ return r.shell === shell && r.thermal === thermal; }).map(function(r){ return r.moisture; }))), '— Select Moisture Barrier —');
   document.getElementById('result-dropdown').innerHTML = '';
   document.getElementById('clear-dropdown').style.display = 'none';
 }
-
 function onMoistureChange() {
-  const shell    = document.getElementById('sel-shell').value;
-  const thermal  = document.getElementById('sel-thermal').value;
-  const moisture = document.getElementById('sel-moisture').value;
-  const resultEl = document.getElementById('result-dropdown');
-  const clearEl  = document.getElementById('clear-dropdown');
-  if (!moisture) { resultEl.innerHTML=''; clearEl.style.display='none'; return; }
-  const r = DATA.find(d=>d.shell===shell&&d.thermal===thermal&&d.moisture===moisture);
-  if (r) { resultEl.innerHTML=buildResultHTML(r, false); clearEl.style.display='block'; }
+  var shell = document.getElementById('sel-shell').value;
+  var thermal = document.getElementById('sel-thermal').value;
+  var moisture = document.getElementById('sel-moisture').value;
+  var resultEl = document.getElementById('result-dropdown');
+  var clearEl = document.getElementById('clear-dropdown');
+  if (!moisture) { resultEl.innerHTML = ''; clearEl.style.display = 'none'; return; }
+  var r = DATA.find(function(d){ return d.shell === shell && d.thermal === thermal && d.moisture === moisture; });
+  if (r) { resultEl.innerHTML = buildResultHTML(r); clearEl.style.display = 'block'; }
 }
-
 function clearDropdown() {
-  ['sel-shell','sel-thermal','sel-moisture'].forEach(id => {
-    const el = document.getElementById(id);
-    el.selectedIndex = 0;
+  ['sel-shell','sel-thermal','sel-moisture'].forEach(function(id) {
+    var el = document.getElementById(id); el.selectedIndex = 0;
     if (id !== 'sel-shell') el.disabled = true;
   });
   populateSelect(document.getElementById('sel-shell'), shells, '— Select Outer Shell —');
@@ -587,26 +462,17 @@ function clearDropdown() {
   document.getElementById('clear-dropdown').style.display = 'none';
 }
 
-// ── Code lookup ──────────────────────────────────────────────────────────────
+// ── Code lookup ───────────────────────────────────────────────────────────────
 function lookupCode() {
-  const raw   = document.getElementById('inp-code').value.trim().toUpperCase();
-  const errEl = document.getElementById('code-error');
-  const resEl = document.getElementById('result-code');
-  const clrEl = document.getElementById('clear-code');
-  if (!raw) { errEl.textContent='Please enter a composite code.'; errEl.style.display='block'; resEl.innerHTML=''; clrEl.style.display='none'; return; }
-  const r = DATA.find(d=>d.code.toUpperCase()===raw);
-  if (r) {
-    errEl.style.display='none';
-    resEl.innerHTML = buildResultHTML(r, true);
-    clrEl.style.display = 'block';
-  } else {
-    errEl.textContent = `No composite found for "${raw}". Check the code and try again.`;
-    errEl.style.display = 'block';
-    resEl.innerHTML = '';
-    clrEl.style.display = 'none';
-  }
+  var raw = document.getElementById('inp-code').value.trim().toUpperCase();
+  var errEl = document.getElementById('code-error');
+  var resEl = document.getElementById('result-code');
+  var clrEl = document.getElementById('clear-code');
+  if (!raw) { errEl.textContent = 'Please enter a composite code.'; errEl.style.display = 'block'; resEl.innerHTML = ''; clrEl.style.display = 'none'; return; }
+  var r = DATA.find(function(d){ return d.code.toUpperCase() === raw; });
+  if (r) { errEl.style.display = 'none'; resEl.innerHTML = buildResultHTML(r); clrEl.style.display = 'block'; }
+  else { errEl.textContent = 'No composite found for "' + raw + '". Check the code and try again.'; errEl.style.display = 'block'; resEl.innerHTML = ''; clrEl.style.display = 'none'; }
 }
-
 function clearCode() {
   document.getElementById('inp-code').value = '';
   document.getElementById('code-error').style.display = 'none';
@@ -614,27 +480,88 @@ function clearCode() {
   document.getElementById('clear-code').style.display = 'none';
 }
 
-// ── PWA Install prompt ───────────────────────────────────────────────────────
-let deferredPrompt = null;
-window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault();
-  deferredPrompt = e;
+// ── Desired Range ─────────────────────────────────────────────────────────────
+// Meets-or-exceeds logic:
+// TPP higher is better, so "good" means v >= 38.6 (and caps at 42.5 to exclude over-encapsulated)
+// THL higher is better, so "good" means v >= 265
+// RET lower is better, so "good" means v <= 24.9
+function tppMeetsOrExceeds(v, tier) {
+  if (v === null) return false;
+  if (v > 42.5) return false; // over-encapsulated never returned
+  if (tier === 'minimum')  return v >= 35;
+  if (tier === 'moderate') return v >= 37;
+  if (tier === 'good')     return v >= 38.6;
+  if (tier === 'excellent')return v >= 40 && v <= 42.5;
+  return false;
+}
+function thlMeetsOrExceeds(v, tier) {
+  if (v === null) return false;
+  if (tier === 'minimum')  return v >= 205;
+  if (tier === 'low')      return v >= 215;
+  if (tier === 'moderate') return v >= 240;
+  if (tier === 'good')     return v >= 265;
+  if (tier === 'great')    return v > 285;
+  if (tier === 'excellent')return v > 300;
+  return false;
+}
+function retMeetsOrExceeds(v, tier) {
+  if (v === null) return false;
+  if (tier === 'low')      return v <= 30;  // anything 30 or below is at least low
+  if (tier === 'moderate') return v <= 30;  // moderate or better
+  if (tier === 'good')     return v <= 24.9;
+  if (tier === 'excellent')return v <= 20;
+  return false;
+}
+function onRangeChange() {
+  var tppTier = document.getElementById('sel-range-tpp').value;
+  var thlTier = document.getElementById('sel-range-thl').value;
+  var retTier = document.getElementById('sel-range-ret').value;
+  var resEl = document.getElementById('result-range');
+  var clrEl = document.getElementById('clear-range');
+  if (!tppTier && !thlTier && !retTier) { resEl.innerHTML = ''; clrEl.style.display = 'none'; return; }
+  var results = DATA.filter(function(r) {
+    if (tppTier && r.tpp === null) return false;
+    if (thlTier && r.thl === null) return false;
+    if (retTier && r.ret === null) return false;
+    if (tppTier && !tppMeetsOrExceeds(r.tpp, tppTier)) return false;
+    if (thlTier && !thlMeetsOrExceeds(r.thl, thlTier)) return false;
+    if (retTier && !retMeetsOrExceeds(r.ret, retTier)) return false;
+    return true;
+  });
+  clrEl.style.display = 'block';
+  if (results.length === 0) {
+    resEl.innerHTML = '<div class="summary-card" style="margin-top:14px"><div class="summary-title">No Results</div><div class="summary-text">No composites match all selected criteria. Try broadening your selection.</div></div>';
+    return;
+  }
+  var items = results.map(function(r) {
+    var tppR = tppRating(r.tpp); var thlR = thlRating(r.thl); var retR = retRating(r.ret);
+    return '<div class="range-item"><div class="range-code">' + r.code + '</div><div class="range-info"><div class="range-name">' + r.shell + ' \u00b7 ' + r.thermal + ' \u00b7 ' + r.moisture + '</div><div class="range-metrics"><span class="range-pill pill-tpp">TPP ' + (r.tpp !== null ? r.tpp : 'N/A') + (tppR ? ' \u00b7 ' + tppR.label : '') + '</span><span class="range-pill pill-ret">RET ' + (r.ret !== null ? r.ret : 'N/A') + (retR ? ' \u00b7 ' + retR.label : '') + '</span><span class="range-pill pill-thl">THL ' + (r.thl !== null ? r.thl : 'N/A') + (thlR ? ' \u00b7 ' + thlR.label : '') + '</span></div></div></div>';
+  }).join('');
+  resEl.innerHTML = '<div class="range-results"><div class="range-count">' + results.length + ' composite' + (results.length === 1 ? '' : 's') + ' found</div><div class="range-list">' + items + '</div></div>';
+}
+function clearRange() {
+  ['sel-range-tpp','sel-range-thl','sel-range-ret'].forEach(function(id){ document.getElementById(id).value = ''; });
+  document.getElementById('result-range').innerHTML = '';
+  document.getElementById('clear-range').style.display = 'none';
+}
+
+// ── PWA ───────────────────────────────────────────────────────────────────────
+var deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', function(e) {
+  e.preventDefault(); deferredPrompt = e;
   document.getElementById('install-banner').classList.remove('hidden');
 });
 function triggerInstall() {
-  if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(()=>{ deferredPrompt=null; dismissInstall(); }); }
+  if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(function(){ deferredPrompt = null; dismissInstall(); }); }
 }
-function dismissInstall() {
-  document.getElementById('install-banner').classList.add('hidden');
-}
+function dismissInstall() { document.getElementById('install-banner').classList.add('hidden'); }
 window.addEventListener('appinstalled', dismissInstall);
-
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () =>
-    navigator.serviceWorker.register('./service-worker.js')
-      .catch(err => console.warn('SW registration failed:', err))
-  );
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('./service-worker.js').catch(function(err){ console.warn('SW registration failed:', err); });
+  });
 }
+
 </script>
 </body>
 </html>
