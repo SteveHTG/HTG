@@ -1,7 +1,7 @@
 // ── Horizon Turnout Gear — Composite Lookup PWA ──────────────────────────────
-// Service Worker v3.0 — Cache-first, fully offline capable
+// Service Worker v6 — Cache-first, fully offline capable
 // Update CACHE_NAME whenever you redeploy to force clients to refresh.
-const CACHE_NAME = 'htg-composites-v2';
+const CACHE_NAME = 'htg-composites-v6';
 const FILES_TO_CACHE = [
   './index.html',
   './manifest.json',
